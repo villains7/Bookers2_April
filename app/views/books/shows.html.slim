@@ -21,4 +21,10 @@
             = link_to @book.title, @book
           td
             = @book.body
+          - if @book.user == current_user
+            td
+              = link_to 'Edit', edit_book_path(@book), class: "btn btn-sm btn-success edit_book_#{@book.id}"
+            td
+              = link_to 'Destroy', @book,method: :delete,: { confirm: '本当に消しますか？'}, class: "btn btn-sm btn-danger destroy_book#{@book.id}"
+
 
